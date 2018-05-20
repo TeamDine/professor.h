@@ -86,7 +86,7 @@ class Professor{
         int getFirstTutorial();
 
         Tutorial returnTutorial(const int&);     ///Recibe (posición) - Retorna (objeto)
-        bool findTutorial(std::string&);               ///Recibe(nombre) - retorna(bandera) [busca un dato]
+        bool findTutorial(Name&);               ///Recibe(nombre) - retorna(bandera) [busca un dato]
         std::string toStringTutorial();             ///Imprime lista
                 
 };
