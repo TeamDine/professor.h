@@ -1,6 +1,5 @@
 # professor.h
 ///clase maestra de los datos del profesor
-
 #ifndef PROFESSOR_H_INCLUDED
 #define PROFESSOR_H_INCLUDED
 
@@ -8,6 +7,7 @@
 #include <string>
 
 /*** Cabeceras locales***/
+#include "listexception.h"          ///Excepciones de lista
 #include "name.h"                   ///Registrar nombres validos
 #include "date.h"                   ///Registrar fechas validas
 #include "address.h"                ///Registrar domicilios
@@ -21,11 +21,11 @@ class Professor{
     private:
         ///Atributos
         PersonalData data;
-        Formation scholarship[10];
+        Formation school[10];
         AcademicProduction perfomance[10];
         Teaching courses[10];
         Tutorials student[15];
-        
+
         ///Atributos (LISTAS)
         int formacion;      ///Ancla de Lista (FORMACION ACADEMICA)
         int produccion;     ///Ancla de Lista (PRODUCCION ACADEMICA)
@@ -33,6 +33,7 @@ class Professor{
         int tutoria;        ///Ancla de Lista (TUTORIAS)
 
     public:
+        Professor();
         /******************************** DATOS PERSONALES ****************************************/
         void setData(PersonalData& );
         PersonalData getData();
@@ -66,29 +67,29 @@ class Professor{
         /******************************** DOCENCIA ****************************************/
         bool emptyCourses();
         bool fullCourses();
-        void insertCourses(int& ,Courses&);     ///Recibe (posición en el arreglo, objeto)
+        void insertCourses(int& ,Teaching&);     ///Recibe (posición en el arreglo, objeto)
         void deleteCourses(int& );     ///Recibe (posición en el arreglo)
 
         int getLastCourses();
         int getFirstCourses();
 
-        Courses returnCourse(const int&);     ///Recibe (posición) - Retorna (objeto)
+        Teaching returnCourse(const int&);     ///Recibe (posición) - Retorna (objeto)
         bool findCourses(std::string&);               ///Recibe(nombre) - retorna(bandera) [busca un dato]
         std::string toStringCourses();             ///Imprime lista
-        
+
         /******************************** TUTORIAS ****************************************/
         bool emptyTutorial();
         bool fullTutorial();
-        void insertTutorial(int& ,Tutorial&);     ///Recibe (posición en el arreglo, objeto)
+        void insertTutorial(int& ,Tutorials&);     ///Recibe (posición en el arreglo, objeto)
         void deleteTutorial(int& );     ///Recibe (posición en el arreglo)
 
         int getLastTutorial();
         int getFirstTutorial();
 
-        Tutorial returnTutorial(const int&);     ///Recibe (posición) - Retorna (objeto)
+        Tutorials returnTutorial(const int&);     ///Recibe (posición) - Retorna (objeto)
         bool findTutorial(Name&);               ///Recibe(nombre) - retorna(bandera) [busca un dato]
         std::string toStringTutorial();             ///Imprime lista
-                
+
 };
 
 #endif // PROFESSOR_H_INCLUDED
